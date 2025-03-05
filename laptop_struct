@@ -1,0 +1,66 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Laptop {
+private:
+    string operatingSystem;
+    int ram; // به گیگابایت
+    int storage; // به گیگابایت
+    string gpu;
+    string cpu;
+    float screenSize; // به اینچ
+    string displayQuality;
+    string resolution;
+public:
+    // سازنده
+    Laptop(string os, int r, int s, string g, string c, float size, string quality, string res)
+        : operatingSystem(os), ram(r), storage(s), gpu(g), cpu(c), screenSize(size), displayQuality(quality), resolution(res) {}
+
+    // تابع برای نمایش اطلاعات لپ‌تاپ
+    void displayInfo() {
+        cout << "laptopinformation\n:" << endl;
+        cout << "operatingSystem: " << operatingSystem << endl;//سیستم عامل
+        cout << "ram: " << ram << "GB" << endl;//حجم رم
+        cout << "storage: " << storage << "GB" << endl;//حجم حافظه
+        cout << "gpu: " << gpu << endl;//واحد پردازش گرافیکی
+        cout << "cpu: " << cpu << endl;//واحد پردازش مرکزی
+        cout << "screenSize: " << screenSize << "inch" << endl;//سایز مانیتور
+        cout << "displayQuality: " << displayQuality << endl;//کیفیت صفحه نمایش
+        cout << "resolution: " << resolution << endl;//رزولوشن
+    }
+};
+int main() {
+    string os;
+    int ram;
+    int storage;
+    string gpu;
+    string cpu;
+    float screenSize;
+    string displayQuality;
+    string resolution;
+
+    cout << "please enter the desired laptop information:" << endl;
+ cout << "operatingSystem (Windows/Linux/MacOS): ";
+    cin >> os;
+    cout << "ram : ";
+    cin >> ram;
+    cout << "storage : ";
+    cin >> storage;
+    cout << "gpu : ";
+    cin >> gpu;
+    cout << "cpu : ";
+    cin >> cpu;
+    cout << "screenSize : ";
+    cin >> screenSize;
+    cout << "displayQuality : ";
+    cin >> displayQuality;
+    cout << "resolution : ";
+    cin >> resolution;
+
+    Laptop laptop(os, ram, storage, gpu, cpu, screenSize, displayQuality, resolution);
+    laptop.displayInfo();
+
+    return 0;
+}
