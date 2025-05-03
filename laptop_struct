@@ -3,8 +3,8 @@
 
 using namespace std;
 
-class Laptop {
-private:
+// ساختار برای ذخیره اطلاعات لپ‌تاپ
+struct LaptopInfo {
     string operatingSystem;
     int ram; // به گیگابایت
     int storage; // به گیگابایت
@@ -13,54 +13,43 @@ private:
     float screenSize; // به اینچ
     string displayQuality;
     string resolution;
-public:
-    // سازنده
-    Laptop(string os, int r, int s, string g, string c, float size, string quality, string res)
-        : operatingSystem(os), ram(r), storage(s), gpu(g), cpu(c), screenSize(size), displayQuality(quality), resolution(res) {}
-
-    // تابع برای نمایش اطلاعات لپ‌تاپ
-    void displayInfo() {
-        cout << "laptopinformation\n:" << endl;
-        cout << "operatingSystem: " << operatingSystem << endl;//سیستم عامل
-        cout << "ram: " << ram << "GB" << endl;//حجم رم
-        cout << "storage: " << storage << "GB" << endl;//حجم حافظه
-        cout << "gpu: " << gpu << endl;//واحد پردازش گرافیکی
-        cout << "cpu: " << cpu << endl;//واحد پردازش مرکزی
-        cout << "screenSize: " << screenSize << "inch" << endl;//سایز مانیتور
-        cout << "displayQuality: " << displayQuality << endl;//کیفیت صفحه نمایش
-        cout << "resolution: " << resolution << endl;//رزولوشن
-    }
 };
+
+// تابع برای نمایش اطلاعات لپ‌تاپ
+void displayLaptopInfo(const LaptopInfo& laptop) {
+    cout << "laptopinformation:\n" << endl;
+    cout << "operatingSystem: " << laptop.operatingSystem << endl;
+    cout << "ram: " << laptop.ram << "GB" << endl;
+    cout << "storage: " << laptop.storage << "GB" << endl;
+    cout << "gpu: " << laptop.gpu << endl;
+    cout << "cpu: " << laptop.cpu << endl;
+    cout << "screenSize: " << laptop.screenSize << "inch" << endl;
+    cout << "displayQuality: " << laptop.displayQuality << endl;
+    cout << "resolution: " << laptop.resolution << endl;
+}
+
 int main() {
-    string os;
-    int ram;
-    int storage;
-    string gpu;
-    string cpu;
-    float screenSize;
-    string displayQuality;
-    string resolution;
-
+    LaptopInfo laptop;
+    
     cout << "please enter the desired laptop information:" << endl;
- cout << "operatingSystem (Windows/Linux/MacOS): ";
-    cin >> os;
-    cout << "ram : ";
-    cin >> ram;
-    cout << "storage : ";
-    cin >> storage;
-    cout << "gpu : ";
-    cin >> gpu;
-    cout << "cpu : ";
-    cin >> cpu;
-    cout << "screenSize : ";
-    cin >> screenSize;
-    cout << "displayQuality : ";
-    cin >> displayQuality;
-    cout << "resolution : ";
-    cin >> resolution;
+    cout << "operatingSystem (Windows/Linux/MacOS): ";
+    cin >> laptop.operatingSystem;
+    cout << "ram: ";
+    cin >> laptop.ram;
+    cout << "storage: ";
+    cin >> laptop.storage;
+    cout << "gpu: ";
+    cin >> laptop.gpu;
+    cout << "cpu: ";
+    cin >> laptop.cpu;
+    cout << "screenSize: ";
+    cin >> laptop.screenSize;
+    cout << "displayQuality: ";
+    cin >> laptop.displayQuality;
+    cout << "resolution: ";
+    cin >> laptop.resolution;
 
-    Laptop laptop(os, ram, storage, gpu, cpu, screenSize, displayQuality, resolution);
-    laptop.displayInfo();
+    displayLaptopInfo(laptop);
 
     return 0;
 }
